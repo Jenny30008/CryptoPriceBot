@@ -1,12 +1,12 @@
-# 🤖 CryptoPriceBot
+# CryptoPriceBot
 
 **Python 3.11+** • **Telegram Bot** • **CoinGecko API** • **MIT License**
 
-A comprehensive cryptocurrency price bot for Telegram. Get real-time prices for **all cryptocurrencies** available on CoinGecko!
+A comprehensive cryptocurrency price bot for Telegram. Get real-time prices for all cryptocurrencies available on CoinGecko!
 
 > ⚠️ **Note**: This bot uses CoinGecko's free API tier with rate limits (30 calls/minute, 10K/month). Perfect for personal use and small projects!
 
-## ✨ Features
+## Features
 
 - 🔍 **Universal Support**: Access to all cryptocurrencies on CoinGecko (10,000+ coins)
 - 💰 **Multi-Currency Prices**: Get prices in 100+ fiat currencies (USD, EUR, GBP, JPY, RUB, etc.)
@@ -19,9 +19,10 @@ A comprehensive cryptocurrency price bot for Telegram. Get real-time prices for 
 - 📱 **Telegram Integration**: Native Telegram bot with interactive commands
 - 🌍 **International Support**: Currency symbols and formatting for global users
 
-## 🛠️ Installation
+## Installation
 
 ### Prerequisites
+
 - Python 3.11 or higher
 - Telegram Bot Token (from [@BotFather](https://t.me/botfather))
 - CoinGecko API access (free)
@@ -51,7 +52,7 @@ A comprehensive cryptocurrency price bot for Telegram. Get real-time prices for 
    python main.py
    ```
 
-## 🚀 Quick Start
+## Commands
 
 ### Basic Commands
 
@@ -75,7 +76,7 @@ A comprehensive cryptocurrency price bot for Telegram. Get real-time prices for 
 - `/backup` - Create data backup (admin only)
 - `/restore` - Restore from backup (admin only)
 
-## 💡 Usage Examples
+## Usage Examples
 
 ### Price Lookup
 
@@ -104,7 +105,7 @@ A comprehensive cryptocurrency price bot for Telegram. Get real-time prices for 
 /settings
 ```
 
-## 🛠️ Technical Details
+## Technical Details
 
 ### Technologies Used
 
@@ -126,7 +127,7 @@ A comprehensive cryptocurrency price bot for Telegram. Get real-time prices for 
 - **Efficient Monitoring** - 5-minute price checks
 - **Memory Optimized** - Lightweight data storage
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 CryptoPriceBot/
@@ -141,10 +142,10 @@ CryptoPriceBot/
 └── README.md               # This file
 ```
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
