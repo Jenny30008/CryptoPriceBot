@@ -1,9 +1,6 @@
 # 🤖 CryptoPriceBot
 
-[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
-[![Telegram](https://img.shields.io/badge/Telegram-Bot-blue.svg)](https://telegram.org)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![CoinGecko](https://img.shields.io/badge/API-CoinGecko-orange.svg)](https://coingecko.com)
+**Python 3.11+** • **Telegram Bot** • **CoinGecko API** • **MIT License**
 
 A comprehensive cryptocurrency price bot for Telegram. Get real-time prices for **all cryptocurrencies** available on CoinGecko!
 
@@ -78,292 +75,50 @@ A comprehensive cryptocurrency price bot for Telegram. Get real-time prices for 
 - `/backup` - Create data backup (admin only)
 - `/restore` - Restore from backup (admin only)
 
-## 🛠️ Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/CryptoPriceBot.git
-   cd CryptoPriceBot
-   ```
-
-2. **Create virtual environment**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Configure bot tokens**
-   ```bash
-   # Copy the example configuration
-   cp config_example.py config.py
-   
-   # Edit config.py and add your tokens
-   # - Telegram: Get token from @BotFather
-   # - Discord: Get token from Discord Developer Portal
-   ```
-
-5. **Run the bot**
-   ```bash
-   python main.py
-   ```
-
-### Running the Bot
-
-Simply run the main file:
-
-```bash
-python main.py
-```
-
-The bot will start and connect to Telegram automatically.
-
-## ⚙️ Configuration
-
-### Bot Tokens
-1. **Telegram Bot:**
-   - Message @BotFather on Telegram
-   - Use `/newbot` command
-   - Copy the token to `config.py`
-
-
-### Configuration Files
-- `config_example.py` - Example configuration file (safe to share)
-- `config.py` - Your local configuration (add your tokens here)
-
-### Security
-- ✅ Tokens are in `config.py` (you can edit them)
-- ✅ Safe to share repository publicly
-- ✅ Simple and straightforward configuration
-
-## 📱 Platform Support
-
-### Telegram Bot Commands
-
-- `/start` - Welcome message and introduction
-- `/help` - Show all available commands
-- `/price <coin>` - Get current price of a cryptocurrency (USD)
-- `/price <coin> <currency>` - Get price in specific currency (e.g., `/price btc eur`)
-- `/search <query>` - Search for cryptocurrencies
-- `/top [limit]` - Show top coins by market cap (max 50)
-- `/prices <coin1> <coin2> ...` - Get multiple prices in USD (max 10)
-- `/prices <coin1> <coin2> <currency>` - Get multiple prices in specific currency
-- `/currencies` - Show supported currencies
-- `/subscribe [threshold]` - Subscribe to price alerts with custom threshold
-- `/addcoin <coin>` - Add specific coin to personal alerts
-- `/removecoin <coin>` - Remove coin from personal alerts
-- `/mycoins` - Show your personal coin subscriptions
-- `/clearcoins` - Clear all personal subscriptions
-- `/unsubscribe` - Unsubscribe from alerts
-- `/settings` - Show your alert settings
-- `/backup` - Create data backup (admin only)
-- `/restore <file>` - Restore data from backup (admin only)
-
-
 ## 💡 Usage Examples
 
-### Getting Prices
+### Price Lookup
 ```
-/price bitcoin          # Bitcoin in USD
-/price btc eur          # Bitcoin in Euros
-/price ethereum rub     # Ethereum in Rubles
-/price doge jpy         # Dogecoin in Yen
+/price bitcoin
+/price ethereum eur
+/prices btc eth ada
 ```
 
 ### Multi-Currency Support
 ```
-/currencies             # Show supported currencies
-/price btc eur          # Single coin in specific currency
-/prices btc eth eur     # Multiple coins in Euros
-/prices doge shib rub   # Multiple coins in Rubles
+/price bitcoin usd
+/price ethereum eur
+/price cardano rub
+/currencies
 ```
 
-### Searching Coins
+### Alert System
 ```
-/search bitcoin
-/search btc
-/search ethereum
-/search dogecoin
-```
-
-### Top Cryptocurrencies
-```
-/top
-/top 20
-/top 50
+/subscribe
+/addcoin bitcoin
+/addcoin ethereum
+/mycoins
+/settings
 ```
 
-### Multiple Prices
-```
-/prices bitcoin ethereum cardano
-/prices btc eth ada
-```
+## 🛠️ Technical Details
 
-### Personal Price Alerts
-```
-/subscribe          # Subscribe with default 5% threshold
-/subscribe 2.5      # Subscribe with 2.5% threshold (0.1% - 50%)
-/addcoin btc        # Add Bitcoin to personal alerts
-/addcoin ethereum   # Add Ethereum to personal alerts
-/mycoins            # View your personal coin subscriptions
-/removecoin btc     # Remove Bitcoin from alerts
-/clearcoins         # Clear all personal subscriptions
-/settings           # Show your current settings
-/unsubscribe        # Stop receiving alerts
-```
+### Technologies Used
+- **Python 3.11+** - Core programming language
+- **python-telegram-bot** - Telegram Bot API wrapper
+- **httpx** - Async HTTP client for API calls
+- **asyncio** - Asynchronous programming
+- **JSON** - Data persistence
 
-**How Personal Alerts Work:**
-1. Use `/subscribe` to enable the alert system
-2. Use `/addcoin <coin>` to add specific cryptocurrencies you want to monitor
-3. You'll only receive alerts for coins you've personally added
-4. No default monitoring - you have full control over which coins to track
+### API Integration
+- **CoinGecko API** - Cryptocurrency data source
+- **Rate Limiting** - 30 calls/minute (free tier)
+- **Error Handling** - Robust error management
 
-## 💱 Supported Currencies
-
-The bot supports **100+ fiat currencies** from around the world:
-
-### Major Currencies
-- **USD** ($) - US Dollar
-- **EUR** (€) - Euro
-- **GBP** (£) - British Pound
-- **JPY** (¥) - Japanese Yen
-- **CAD** (C$) - Canadian Dollar
-- **AUD** (A$) - Australian Dollar
-- **CHF** (CHF) - Swiss Franc
-
-### Regional Currencies
-- **RUB** (₽) - Russian Ruble
-- **INR** (₹) - Indian Rupee
-- **BRL** (R$) - Brazilian Real
-- **KRW** (₩) - South Korean Won
-- **CNY** (¥) - Chinese Yuan
-- **MXN** ($) - Mexican Peso
-- **TRY** (₺) - Turkish Lira
-- **UAH** (₴) - Ukrainian Hryvnia
-
-### And Many More!
-Use `/currencies` command to see the complete list of supported currencies.
-
-**Currency Usage:**
-- Single price: `/price btc eur`
-- Multiple prices: `/prices btc eth rub`
-- Show currencies: `/currencies`
-5. Each user can have their own custom threshold and coin list
-6. **All settings are saved permanently** - your preferences persist between bot restarts
-
-## 💾 Persistent Storage
-
-The bot now includes persistent storage that remembers all user settings between restarts:
-
-### What's Saved
-- **User Subscriptions**: Who is subscribed to alerts
-- **Personal Thresholds**: Each user's custom alert threshold
-- **Coin Subscriptions**: Personal coin lists for each user
-- **Price History**: Last known prices for monitoring
-
-### Storage Features
-- **JSON Format**: Simple, human-readable data storage
-- **Thread-Safe**: Multiple users can use the bot simultaneously
-- **Backup & Restore**: Admin commands for data management
-- **Auto-Save**: All changes are saved immediately
-- **Startup Statistics**: Shows current user statistics when bot starts
-
-### Admin Commands
-- `/backup` - Create a backup of all user data
-- `/restore <filename>` - Restore data from backup file
-
-**Setup Admin Access:**
-1. Get your Telegram ID from @userinfobot
-2. Edit `telegram_bot.py` and replace `123456789` with your ID
-3. Restart the bot
-4. Use admin commands in your Telegram chat
-
-### Data Files
-- `user_data.json` - Main data file (auto-created)
-- `backup_YYYYMMDD_HHMMSS.json` - Backup files
-
-### Startup Statistics
-When the bot starts, it displays current user statistics:
-
-```
-============================================================
-📊 CURRENT USER STATISTICS
-============================================================
-👥 Total subscribers: 3
-⚙️  Custom thresholds: 2
-📊 Default thresholds: 1
-🪙 Users with coin subscriptions: 2
-📭 Users without coin subscriptions: 1
-🔍 Total unique coins being monitored: 5
-
-📋 DETAILED USER BREAKDOWN:
-------------------------------------------------------------
- 1. User 123456789
-    📊 Threshold: 3.5%
-    🪙 Coins: 3 (bitcoin, ethereum, cardano)
-
- 2. User 987654321
-    📊 Threshold: 2.0%
-    🪙 Coins: 2 (solana, polkadot)
-
- 3. User 555666777
-    📊 Threshold: 5.0%
-    🪙 Coins: 0 ()
-============================================================
-```
-
-## 🔧 Configuration
-
-### Alert Settings
-- **Default Threshold**: 5% price change
-- **Custom Thresholds**: 0.1% - 50% (per user)
-- **Monitoring**: Only personal coin subscriptions (no default monitoring)
-- **Frequency**: Every 5 minutes
-- **Individual Settings**: Each user can set their own threshold and coin list
-- **Persistent**: All settings saved between bot restarts
-
-## ⚠️ API Limitations & Rate Limits
-
-### CoinGecko API (Free Tier)
-- **Rate Limit**: 30 calls per minute
-- **Monthly Limit**: 10,000 calls per month
-- **Caching Strategy**: 
-  - Coin list cached for 1 hour (reduces API calls)
-  - Top coins cached for 5 minutes
-  - Price data is NOT cached (real-time accuracy)
-
-### Performance Considerations
-- **Alert Frequency**: Every 5 minutes (not real-time)
-- **Concurrent Users**: Limited by API rate limits
-- **Scaling**: For production use, consider upgrading to paid API plan
-
-### Monitoring Usage
-The bot automatically manages API calls to stay within limits:
-- Batches multiple price requests into single API calls
-- Uses caching to minimize redundant requests
-- Implements error handling for rate limit exceeded scenarios
-
-### Upgrade Options
-For higher usage, consider:
-- CoinGecko Pro API (higher rate limits)
-- Multiple API keys with load balancing
-- Database caching for better performance
-
-### Monitoring API Usage
-Check your current API status:
-```bash
-python api_usage_monitor.py
-```
-
-This will show:
-- Current API status
-- Rate limit information
-- Remaining calls
-- Reset time
+### Performance
+- **Async Operations** - Non-blocking API calls
+- **Efficient Monitoring** - 5-minute price checks
+- **Memory Optimized** - Lightweight data storage
 
 ## 📁 Project Structure
 
@@ -374,40 +129,11 @@ CryptoPriceBot/
 ├── telegram_bot.py          # Telegram bot implementation
 ├── alerts.py                # Price alert system
 ├── user_storage.py          # Persistent data storage
-├── config.py                # Configuration file
-├── config_example.py        # Example configuration
-├── api_usage_monitor.py     # API usage monitoring tool
+├── config.py                # Configuration settings
 ├── requirements.txt         # Python dependencies
 ├── user_data.json           # User data storage (auto-created)
-├── STORAGE_USAGE.md         # Storage documentation
 └── README.md               # This file
 ```
-
-## 🛠️ Development
-
-### Adding New Features
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-### API Integration
-The bot uses the CoinGecko API v3:
-- **Base URL**: `https://api.coingecko.com/api/v3/`
-- **Endpoints**: 
-  - `/coins/list` - Get all coins
-  - `/simple/price` - Get current prices
-  - `/coins/markets` - Get market data
-
-## 📊 Supported Cryptocurrencies
-
-This bot supports **ALL** cryptocurrencies available on CoinGecko, including:
-- Bitcoin (BTC)
-- Ethereum (ETH)
-- Cardano (ADA)
-- Solana (SOL)
-- And 10,000+ more!
 
 ## 🤝 Contributing
 
@@ -415,19 +141,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## ⚠️ Disclaimer
+## 📞 Contact
 
-This bot is for educational and informational purposes only. Cryptocurrency investments carry risk, and past performance does not guarantee future results. Always do your own research before investing.
-
-## 📞 Support
-
-If you encounter any issues or have questions:
-1. Check the [Issues](https://github.com/Jenny30008/CryptoPriceBot/issues) page
-2. Create a new issue with detailed information
-3. Contact the maintainers
-
----
-
-**Made with ❤️ for the crypto community**
+Project Link: [https://github.com/Jenny30008/CryptoPriceBot](https://github.com/Jenny30008/CryptoPriceBot)
