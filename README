@@ -78,6 +78,7 @@ A comprehensive cryptocurrency price bot for Telegram. Get real-time prices for 
 ## 💡 Usage Examples
 
 ### Price Lookup
+
 ```
 /price bitcoin
 /price ethereum eur
@@ -85,6 +86,7 @@ A comprehensive cryptocurrency price bot for Telegram. Get real-time prices for 
 ```
 
 ### Multi-Currency Support
+
 ```
 /price bitcoin usd
 /price ethereum eur
@@ -93,6 +95,7 @@ A comprehensive cryptocurrency price bot for Telegram. Get real-time prices for 
 ```
 
 ### Alert System
+
 ```
 /subscribe
 /addcoin bitcoin
@@ -104,6 +107,7 @@ A comprehensive cryptocurrency price bot for Telegram. Get real-time prices for 
 ## 🛠️ Technical Details
 
 ### Technologies Used
+
 - **Python 3.11+** - Core programming language
 - **python-telegram-bot** - Telegram Bot API wrapper
 - **httpx** - Async HTTP client for API calls
@@ -111,11 +115,13 @@ A comprehensive cryptocurrency price bot for Telegram. Get real-time prices for 
 - **JSON** - Data persistence
 
 ### API Integration
+
 - **CoinGecko API** - Cryptocurrency data source
 - **Rate Limiting** - 30 calls/minute (free tier)
 - **Error Handling** - Robust error management
 
 ### Performance
+
 - **Async Operations** - Non-blocking API calls
 - **Efficient Monitoring** - 5-minute price checks
 - **Memory Optimized** - Lightweight data storage
@@ -142,7 +148,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📞 Contact
-
-Project Link: [https://github.com/Jenny30008/CryptoPriceBot](https://github.com/Jenny30008/CryptoPriceBot)
