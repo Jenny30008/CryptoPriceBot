@@ -1,5 +1,10 @@
 # 🤖 CryptoPriceBot
 
+[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
+[![Telegram](https://img.shields.io/badge/Telegram-Bot-blue.svg)](https://telegram.org)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![CoinGecko](https://img.shields.io/badge/API-CoinGecko-orange.svg)](https://coingecko.com)
+
 A comprehensive cryptocurrency price bot for Telegram. Get real-time prices for **all cryptocurrencies** available on CoinGecko!
 
 > ⚠️ **Note**: This bot uses CoinGecko's free API tier with rate limits (30 calls/minute, 10K/month). Perfect for personal use and small projects!
@@ -17,18 +22,67 @@ A comprehensive cryptocurrency price bot for Telegram. Get real-time prices for 
 - 📱 **Telegram Integration**: Native Telegram bot with interactive commands
 - 🌍 **International Support**: Currency symbols and formatting for global users
 
-## 🚀 Quick Start
+## 🛠️ Installation
 
 ### Prerequisites
+- Python 3.11 or higher
+- Telegram Bot Token (from [@BotFather](https://t.me/botfather))
+- CoinGecko API access (free)
 
-- Python 3.8 or higher
-- Telegram Bot Token (for Telegram bot)
+### Setup Instructions
 
-### Installation
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Jenny30008/CryptoPriceBot.git
+   cd CryptoPriceBot
+   ```
+
+2. **Install Python dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Configure your bot:**
+   - Copy `config_example.py` to `config.py`
+   - Add your Telegram Bot Token:
+     ```python
+     TELEGRAM_API_TOKEN = "your_bot_token_here"
+     ```
+
+4. **Run the bot:**
+   ```bash
+   python main.py
+   ```
+
+## 🚀 Quick Start
+
+### Basic Commands
+
+- `/start` - Welcome message and bot introduction
+- `/price bitcoin` - Get Bitcoin price in USD
+- `/price ethereum eur` - Get Ethereum price in EUR
+- `/search btc` - Search for cryptocurrencies
+- `/top` - View top cryptocurrencies by market cap
+- `/currencies` - List supported fiat currencies
+
+### Alert Management
+
+- `/subscribe` - Subscribe to price alerts
+- `/addcoin bitcoin` - Add Bitcoin to monitoring
+- `/mycoins` - View your monitored coins
+- `/settings` - Manage alert preferences
+- `/unsubscribe` - Stop receiving alerts
+
+### Admin Commands
+
+- `/backup` - Create data backup (admin only)
+- `/restore` - Restore from backup (admin only)
+
+## 🛠️ Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Jenny30008/CryptoPriceBot.git
+   git clone https://github.com/yourusername/CryptoPriceBot.git
    cd CryptoPriceBot
    ```
 
@@ -47,9 +101,10 @@ A comprehensive cryptocurrency price bot for Telegram. Get real-time prices for 
    ```bash
    # Copy the example configuration
    cp config_example.py config.py
-
+   
    # Edit config.py and add your tokens
    # - Telegram: Get token from @BotFather
+   # - Discord: Get token from Discord Developer Portal
    ```
 
 5. **Run the bot**
@@ -276,7 +331,7 @@ When the bot starts, it displays current user statistics:
 ### CoinGecko API (Free Tier)
 - **Rate Limit**: 30 calls per minute
 - **Monthly Limit**: 10,000 calls per month
-- **Caching Strategy**:
+- **Caching Strategy**: 
   - Coin list cached for 1 hour (reduces API calls)
   - Top coins cached for 5 minutes
   - Price data is NOT cached (real-time accuracy)
@@ -340,7 +395,7 @@ CryptoPriceBot/
 ### API Integration
 The bot uses the CoinGecko API v3:
 - **Base URL**: `https://api.coingecko.com/api/v3/`
-- **Endpoints**:
+- **Endpoints**: 
   - `/coins/list` - Get all coins
   - `/simple/price` - Get current prices
   - `/coins/markets` - Get market data
