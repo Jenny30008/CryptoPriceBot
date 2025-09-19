@@ -1,0 +1,76 @@
+# Persistent Storage Usage
+
+This document explains how to use the persistent storage system for the CryptoPriceBot.
+
+## Features
+
+- **Persistent Data**: User settings, subscriptions, and price data are saved between bot restarts
+- **JSON Storage**: Simple file-based storage using JSON format
+- **Thread-Safe**: All operations are thread-safe with proper locking
+- **Backup & Restore**: Built-in backup and restore functionality
+
+## Storage Type
+
+### JSON Storage
+- Simple file-based storage
+- Human-readable format
+- Easy to backup and inspect
+- Perfect for small to medium deployments
+
+## Configuration
+
+Edit `config.py` to change storage settings:
+
+```python
+# Storage Settings
+STORAGE_PATH = "user_data"  # Path for JSON storage file
+```
+
+## Data Structure
+
+The storage system saves:
+- `subscribers`: List of user chat IDs
+- `user_alert_thresholds`: User-specific alert thresholds
+- `user_coin_subscriptions`: User-specific coin subscriptions
+- `last_prices`: Last known prices for all monitored coins
+
+## Admin Commands
+
+### Backup Data
+```
+/backup
+```
+Creates a backup of all user data. Admin only.
+
+### Restore Data
+```
+/restore backup_20231201_120000.json
+```
+Restores data from a backup file. Admin only.
+
+## File Locations
+
+- Main data file: `user_data.json`
+- Backup files: `backup_YYYYMMDD_HHMMSS.json`
+
+## Error Handling
+
+The storage system includes comprehensive error handling:
+- All operations return boolean success indicators
+- Errors are logged to console
+- Graceful fallbacks for corrupted data
+- Thread-safe operations with proper locking
+
+## Performance Considerations
+
+- Good for up to ~1000 users
+- Simple file I/O operations
+- Easy to debug and inspect
+- Perfect for portfolio projects
+
+## Security Notes
+
+- Admin commands require chat ID whitelist
+- All data is stored locally
+- No external dependencies for data storage
+- Backup files contain sensitive user data

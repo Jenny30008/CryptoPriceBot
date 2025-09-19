@@ -1,0 +1,14 @@
+# CryptoPriceBot Dependencies
+# Core dependencies for cryptocurrency price bot
+
+# HTTP requests library (async)
+httpx>=0.28.0
+
+# Telegram bot library
+python-telegram-bot>=22.3
+
+# Task scheduling for price alerts
+schedule>=1.2.2
+
+# Type hints support
+typing-extensions>=4.15.0
